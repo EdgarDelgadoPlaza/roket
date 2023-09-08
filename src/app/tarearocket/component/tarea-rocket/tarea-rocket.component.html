@@ -1,0 +1,66 @@
+
+
+<div class="flex justify-content-center mt-7">
+
+    <div class="flex flex-column">
+        <div class="flex justify-content-center h-4rem">
+
+            <div class="flex flex-row flex-wrap">
+                <div class="flex align-items-center justify-content-center h-4rem">
+                    <div class="justify-content-center">
+                        <p-dropdown [options]="markerTrees" [(ngModel)]="selectedTree" optionLabel="tree.nameLabel" (onChange)="selectDropdown($event)"></p-dropdown>
+                    </div>
+                </div>
+           
+            </div>
+
+        </div>
+
+
+
+        <div class="flex justify-content-center h-4rem mt-5">
+            
+            <div class="grid">
+                <div class="col-6">
+                    <div *ngIf="selectedTree">
+                        <p-panel [header]="selectedTree.tree.object_name" class="fadein animation-duration-1000">
+                            <div class="flex border-round-lg align-items-center justify-content-center">
+                                <p-image [src]="selectedTree.tree.image_url" 
+                                            alt="Image" 
+                                            height="400" 
+                                            width="600" 
+                                            [preview]="true" ></p-image>
+
+                            </div>
+                        </p-panel> 
+
+                  
+                    </div>
+                    
+                </div>
+        
+                <div class="col-6">
+                    <div *ngIf="markerTrees.length > 0">
+                
+                        <app-map-box #mapbox [markerTrees]="markerTrees"></app-map-box>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    
+
+
+
+    
+    
+
+    
+
+    
+</div>
